@@ -1,5 +1,5 @@
 plugins {
-    kotlin("multiplatform") version "1.9.20-RC2"
+    kotlin("multiplatform") version "1.9.20"
 }
 
 group = "me.user"
@@ -30,7 +30,14 @@ kotlin {
         }
     }
     sourceSets {
-        val nativeMain by getting
+        val nativeMain by getting {
+            dependencies  {
+                implementation("io.ktor:ktor-server-core:2.3.6")
+                implementation("io.ktor:ktor-server-cio:2.3.6")
+            }
+
+        }
         val nativeTest by getting
     }
 }
+
